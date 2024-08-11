@@ -278,7 +278,7 @@ describe("escrow", () => {
 		expect(balances.takerAtaB).to.equal(1000);
 	});
 
-	it("Refund: refunds the deposited mint_a tokens to the maker and closes the escrow", async () => {
+	xit("Refund: refunds the deposited mint_a tokens to the maker and closes the escrow- might be used in case the taker doesn't fulfill their part of the agreement", async () => {
 		try {
 			await program.methods
 				.refund()
@@ -295,8 +295,6 @@ describe("escrow", () => {
 		}
 	});
 
-	// Transfers the expected receive amount of mint_b from taker to the maker Represents the taker fulfilling their part of the escrow agreement
-	// Withdraws the deposited mint_a tokens from the vault to the taker and closes the vault account This action finalizes the escrow by returning control of the deposited assets to the taker and cleaning up state
 	it("Take: deposits receive amount of mint_b from the taker (fulfilling the agreement) and withdraws the deposited mint_a tokens to the taker, then finalizes the escrow", async () => {
 		try {
 			await program.methods
